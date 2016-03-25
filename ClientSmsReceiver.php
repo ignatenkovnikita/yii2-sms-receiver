@@ -32,7 +32,7 @@ class ClientSmsReceiver extends Component
     public function getMessages()
     {
         $params = [
-            'generator' => $this->credentials,
+            'owner' => $this->credentials,
             'maxLimit' => $this->maxLimit
         ];
 
