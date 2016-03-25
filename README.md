@@ -24,8 +24,24 @@ to the require section of your `composer.json` file.
 
 Usage
 -----
-
-Once the extension is installed, simply use it in your code by  :
+Add this to your main configuration's components array:
 
 ```php
-<?= \ignatenkovnikita\smsreceiver\AutoloadExample::widget(); ?>```
+'smsReceiver' => [
+            'class' => \ignatenkovnikita\smssender\ClientSmsSender::className(),
+            'gate' => your_gate,
+            'credentials' => [
+                'ID' => your_id_,
+                'name' => yout_name_,
+                'password' => your_pasword
+            ],
+            'maxLimit' => your_limit
+        ],
+```
+Typical component usage
+-----------------------
+```php
+Yii::$app->refillMobile->getMessages();
+Yii::$app->refillMobile->sendMessage(your_phone, your_message);
+```
+Once the extension is installed, simply use it in your code by  :
