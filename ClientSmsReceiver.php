@@ -26,7 +26,7 @@ class ClientSmsReceiver extends Component
     public function init()
     {
         parent::init();
-        $this->_client = new \SoapClient($this->gate, ["trace" => 1, "exceptions" => 1]);
+        $this->_client = new \SoapClient($this->gate, ["trace" => 1, "exceptions" => 0]);
     }
 
     public function getMessages()
