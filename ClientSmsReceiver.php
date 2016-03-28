@@ -29,6 +29,10 @@ class ClientSmsReceiver extends Component
         $this->_client = new \SoapClient($this->gate, ["trace" => 1, "exceptions" => 0]);
     }
 
+    /**
+     * Function return array of MessageModel
+     * @return array
+     */
     public function getMessages()
     {
         $params = [
@@ -36,22 +40,29 @@ class ClientSmsReceiver extends Component
             'maxLimit' => $this->maxLimit
         ];
 
-
         $result = $this->_client->getMessages($params);
-        return $result->return;
+        //$result->return = FakeData::getData();
+        var_dump($result->return);
+        return FactoryMessage::getMessages($result->return);
     }
 
-    public function sendMessage($phone, $message)
+    /**
+     * Send message after receiver
+     * @param $shortPhone
+     * @param $clientPhone
+     * @param $message
+     * @return mixed
+     */
+    public function sendMessage($shortPhone, $clientPhone , $message)
     {
         $params = [
             'generator' => $this->credentials,
-            //'shortPhone' => '',
-            'clientPhone' => $phone,
+            'shortPhone' => $shortPhone,
+            'clientPhone' => $clientPhone,
             'message' => $message
         ];
 
         $result = $this->_client->sendOutboundMessage($params);
         return $result->return;
     }
-
 }

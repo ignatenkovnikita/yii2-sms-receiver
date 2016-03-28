@@ -42,6 +42,5 @@ Typical component usage
 -----------------------
 ```php
 Yii::$app->refillMobile->getMessages();
-Yii::$app->refillMobile->sendMessage(your_phone, your_message);
+Yii::$app->refillMobile->sendMessage(your_short, your_phone, your_message);
 ```
-Once the extension is installed, simply use it in your code by  :
