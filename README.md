@@ -28,7 +28,7 @@ Add this to your main configuration's components array:
 
 ```php
 'smsReceiver' => [
-            'class' => \ignatenkovnikita\smssender\ClientSmsSender::className(),
+            'class' => \ignatenkovnikita\smssender\ClientSmsReceiver::className(),
             'gate' => your_gate,
             'credentials' => [
                 'ID' => your_id_,
