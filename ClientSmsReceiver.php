@@ -41,8 +41,6 @@ class ClientSmsReceiver extends Component
         ];
 
         $result = $this->_client->getMessages($params);
-        //$result->return = FakeData::getData();
-        var_dump($result->return);
         return FactoryMessage::getMessages($result->return);
     }
 
@@ -53,7 +51,7 @@ class ClientSmsReceiver extends Component
      * @param $message
      * @return mixed
      */
-    public function sendMessage($shortPhone, $clientPhone , $message)
+    public function sendMessage($shortPhone, $clientPhone, $message)
     {
         $params = [
             'generator' => $this->credentials,
