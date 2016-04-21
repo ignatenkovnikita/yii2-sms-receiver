@@ -20,15 +20,17 @@ class FactoryMessage
     {
         /** @var array $messages */
         $messages = [];
-
-        if (is_array($data)) {
-            foreach ($data as $item) {
-                $messages[] = self::getMessage($item);
+        if($data){
+            if (is_array($data)) {
+                foreach ($data as $item) {
+                    $messages[] = self::getMessage($item);
+                }
+            } else {
+                $messages[] = self::getMessage($data);
             }
-        } else {
-            $messages[] = self::getMessage($data);
         }
-        return $messages;
+
+        return $messages ? $messages : null;
     }
 
     /**
