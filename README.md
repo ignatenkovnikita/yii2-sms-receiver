@@ -43,6 +43,6 @@ Add this to your main configuration's components array:
 Typical component usage
 -----------------------
 ```php
-Yii::$app->refillMobile->getMessages();
-Yii::$app->refillMobile->sendMessage(your_short, your_phone, your_message);
+Yii::$app->smsReceiver->getMessages();
+Yii::$app->smsReceiver->sendMessage(your_short, your_phone, your_message);
 ```
