@@ -41,7 +41,7 @@ class ClientSmsReceiver extends Component
         ];
 
         $result = $this->_client->getMessages($params);
-        return FactoryMessage::getMessages($result->return);
+        return isset($result->return) ? FactoryMessage::getMessages($result->return) : null;
     }
 
     /**
